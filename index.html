@@ -29,9 +29,7 @@
         }
 
         .content {
-            position: absolute;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
             height: 200vh;
             display: flex;
@@ -41,26 +39,26 @@
             text-align: center;
         }
 
+        /* ↓ YUKARI KAYDIRIN VE OKLAR EKRAN ALTINA SABİTLENDİ ↓ */
         .title-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20vh;
         }
 
-        .main-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
-            color: black;
-            text-shadow: 2px 2px 8px #36454f;
-            margin-bottom: 15px;
-        }
-
-        .scroll-title {
-            font-size: 1.5rem;
+        .title {
+            font-size: 25px;
             color: black;
             text-shadow: 2px 2px 8px #36454f;
             margin-bottom: 5px;
+            border-style: inset;
+            background: rgba(255,255,255,0.6);
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
         .scroll-hint {
@@ -102,7 +100,6 @@
             filter: blur(10px);
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -110,11 +107,9 @@
 
     <div class="content">
         <div class="title-container">
-            <h1 class="main-title">Royal Wedding Maltepe</h1>
-            <h2 class="scroll-title">Yukarı Kaydırın</h2>
+            <h1 class="title">Yukarı Kaydırın</h1>
             <div class="scroll-hint">↓ ↓ ↓ ↓</div>
         </div>
-
         <div class="buttons">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfeoDhiPCR1lLgwJ1kXLLHopvGoGQACu6JTRevHDUiGOTnezg/viewform?usp=header" target="_blank">Fotoğraf Yükle</a>
             <a href="https://drive.google.com/drive/folders/10jJVz28jnrQ0xRluW8ymNiRoGV8lyPKuoCDSTfhGbQL1zCObJ98I1Yzwh62v7NwyVhWapAUS?usp=drive_link" target="_blank">Fotoğrafları Gör</a>
@@ -125,6 +120,7 @@
         window.addEventListener('scroll', function() {
             var background = document.getElementById('background');
             var scrollPosition = window.scrollY;
+
             if (scrollPosition > 50) {
                 background.classList.add('blur');
             } else {
